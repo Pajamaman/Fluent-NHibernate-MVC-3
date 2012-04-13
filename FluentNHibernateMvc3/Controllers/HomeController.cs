@@ -8,7 +8,7 @@ namespace FluentNHibernateMvc3.Controllers
 {
     public class HomeController : Controller
     {
-        IRepository<Store> StoreRepository;
+        private readonly IRepository<Store> StoreRepository;
 
         // Constructs our home controller
         public HomeController()
