@@ -11,11 +11,13 @@ namespace FluentNHibernateMVC3.Controllers
     {
         IRepository<Store> StoreRepository;
 
+        // Constructs our home controller
         public HomeController()
         {
             StoreRepository = new Repository<Store>();
         }
 
+        // Gets all the stores from our database and returns a view that displays them
         public ActionResult Index()
         {
             var stores = StoreRepository.GetAll();
@@ -28,6 +30,7 @@ namespace FluentNHibernateMVC3.Controllers
             return View( model );
         }
 
+        // Gets and modifies a single store from our database
         public ActionResult Test()
         {
             var barginBasin = StoreRepository.Get( s => s.Name == "Bargin Basin" ).SingleOrDefault();
@@ -42,6 +45,7 @@ namespace FluentNHibernateMVC3.Controllers
             return RedirectToAction( "Index" );
         }
 
+        // Adds sample data to our database
         public ActionResult Seed()
         {
             // Create a couple of Stores each with some Products and Employees
