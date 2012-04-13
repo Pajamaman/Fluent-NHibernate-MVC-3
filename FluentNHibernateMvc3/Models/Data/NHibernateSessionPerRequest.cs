@@ -75,7 +75,7 @@ namespace FluentNHibernateMvc3.Models.Data
                 .Configure()
                 .Database( MsSqlConfiguration.MsSql2008
                     .ConnectionString( c => c
-                        .FromConnectionStringWithKey( "Dave3" ) ) )
+                        .FromConnectionStringWithKey( "testConn" ) ) )
                 .Mappings( m => m
                     .AutoMappings.Add( mappings ) )
                 .ExposeConfiguration( c =>
