@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace FluentNHibernateMVC3.Models.Data
+namespace FluentNHibernateMvc3.Models.Data
 {
     /// <summary>
     /// http://www.bengtbe.com/blog/2009/10/08/nerddinner-with-fluent-nhibernate-part-3-the-infrastructure

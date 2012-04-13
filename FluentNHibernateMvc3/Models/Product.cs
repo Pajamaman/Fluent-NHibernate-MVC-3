@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FluentNHibernateMVC3.Models
+namespace FluentNHibernateMvc3.Models
 {
     public class Product
     {

@@ -1,4 +1,4 @@
-﻿@model FluentNHibernateMVC3.Models.ViewModels.HomeIndexViewModel
+﻿@model List<FluentNHibernateMvc3.Models.Store>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <ul>
-@foreach ( var store in Model.Stores ) {
+@foreach ( var store in Model ) {
     <li>@store.Name</li>
     <li>Products:</li>
     <ul>

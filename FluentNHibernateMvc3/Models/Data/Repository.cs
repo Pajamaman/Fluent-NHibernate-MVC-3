@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace FluentNHibernateMVC3.Models.Data
+namespace FluentNHibernateMvc3.Models.Data
 {
     /// <summary>
     /// http://www.bengtbe.com/blog/2009/10/08/nerddinner-with-fluent-nhibernate-part-3-the-infrastructure

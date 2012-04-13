@@ -10,7 +10,7 @@ using NHibernate.Cfg;
 using NHibernate.Context;
 using NHibernate.Tool.hbm2ddl;
 
-namespace FluentNHibernateMVC3.Models.Data
+namespace FluentNHibernateMvc3.Models.Data
 {
     /// <summary>
     /// http://www.bengtbe.com/blog/2009/10/08/nerddinner-with-fluent-nhibernate-part-3-the-infrastructure
@@ -90,7 +90,7 @@ namespace FluentNHibernateMVC3.Models.Data
         {
             return AutoMap
                 .Assembly( System.Reflection.Assembly.GetCallingAssembly() )
-                .Where( t => t.Namespace == "FluentNHibernateMVC3.Models" )
+                .Where( t => t.Namespace == "FluentNHibernateMvc3.Models" )
                 .Conventions.Setup( c =>
                     {
                         c.Add( DefaultCascade.SaveUpdate() );

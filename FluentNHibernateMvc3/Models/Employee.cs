@@ -1,4 +1,4 @@
-﻿namespace FluentNHibernateMVC3.Models
+﻿namespace FluentNHibernateMvc3.Models
 {
     public class Employee
     {

@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 
-using FluentNHibernateMVC3.Models;
-using FluentNHibernateMVC3.Models.Data;
-using FluentNHibernateMVC3.Models.ViewModels;
+using FluentNHibernateMvc3.Models;
+using FluentNHibernateMvc3.Models.Data;
 
-namespace FluentNHibernateMVC3.Controllers
+namespace FluentNHibernateMvc3.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,14 +19,9 @@ namespace FluentNHibernateMVC3.Controllers
         // Gets all the stores from our database and returns a view that displays them
         public ActionResult Index()
         {
-            var stores = StoreRepository.GetAll();
+            var stores = StoreRepository.GetAll().ToList();
 
-            var model = new HomeIndexViewModel
-            {
-                Stores = stores.ToList()
-            };
-
-            return View( model );
+            return View( stores );
         }
 
         // Gets and modifies a single store from our database
