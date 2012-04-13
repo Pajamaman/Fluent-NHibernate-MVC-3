@@ -19,24 +19,29 @@ namespace FluentNHibernateMvc3.Models.Data
     {
         private static readonly ISessionFactory _sessionFactory;
 
+        // Constructs our HTTP module
         static NHibernateSessionPerRequest()
         {
             _sessionFactory = CreateSessionFactory();
         }
 
+        // Initializes the HTTP module
         public void Init( HttpApplication context )
         {
             context.BeginRequest += BeginRequest;
             context.EndRequest += EndRequest;
         }
 
+        // Disposes the HTTP module
+        public void Dispose() { }
+
+        // Returns the current session
         public static ISession GetCurrentSession()
         {
             return _sessionFactory.GetCurrentSession();
         }
 
-        public void Dispose() { }
-
+        // Opens the session, begins the transaction, and binds the session
         private static void BeginRequest( object sender, EventArgs e )
         {
             ISession session = _sessionFactory.OpenSession();
@@ -46,6 +51,7 @@ namespace FluentNHibernateMvc3.Models.Data
             CurrentSessionContext.Bind( session );
         }
 
+        // Unbinds the session, commits the transaction, and closes the session
         private static void EndRequest( object sender, EventArgs e )
         {
             ISession session = CurrentSessionContext.Unbind( _sessionFactory );
@@ -67,6 +73,7 @@ namespace FluentNHibernateMvc3.Models.Data
             }
         }
 
+        // Returns our NHibernate session factory
         private static ISessionFactory CreateSessionFactory()
         {
             var mappings = CreateMappings();
@@ -86,6 +93,7 @@ namespace FluentNHibernateMvc3.Models.Data
                 .BuildSessionFactory();
         }
 
+        // Returns our NHibernate auto mapper
         private static AutoPersistenceModel CreateMappings()
         {
             return AutoMap
@@ -97,14 +105,14 @@ namespace FluentNHibernateMvc3.Models.Data
                     } );
         }
 
-         // Drops and creates the database
+         // Drops and creates the database shema
          // private static void BuildSchema( Configuration cfg )
          // {
          //     new SchemaExport( cfg )
          //         .Create( false, true );
          // }
 
-         // Updates the database if there are any changes to the model
+         // Updates the database schema if there are any changes to the model
          private static void BuildSchema( Configuration cfg )
          {
              new SchemaUpdate( cfg );
