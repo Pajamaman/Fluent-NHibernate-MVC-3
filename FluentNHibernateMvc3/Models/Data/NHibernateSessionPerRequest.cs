@@ -88,7 +88,7 @@ namespace FluentNHibernateMvc3.Models.Data
                 .ExposeConfiguration( c =>
                     {
                         BuildSchema( c );
-                        c.Properties[ NHibernate.Cfg.Environment.CurrentSessionContextClass ] = "web";
+                        c.CurrentSessionContext<WebSessionContext>();
                     } )
                 .BuildSessionFactory();
         }
