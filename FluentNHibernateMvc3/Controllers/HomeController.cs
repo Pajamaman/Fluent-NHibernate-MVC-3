@@ -75,7 +75,7 @@ namespace FluentNHibernateMvc3.Controllers
         }
 
         // Adds any products that we pass in to the store that we pass in
-        public static void AddProductsToStore( Store store, params Product[] products )
+        private void AddProductsToStore( Store store, params Product[] products )
         {
             foreach ( var product in products )
             {
@@ -84,7 +84,7 @@ namespace FluentNHibernateMvc3.Controllers
         }
 
         // Adds any employees that we pass in to the store that we pass in
-        public static void AddEmployeesToStore( Store store, params Employee[] employees )
+        private void AddEmployeesToStore( Store store, params Employee[] employees )
         {
             foreach ( var employee in employees )
             {
