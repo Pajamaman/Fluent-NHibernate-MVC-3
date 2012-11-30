@@ -105,17 +105,11 @@ namespace FluentNHibernateMvc3.Models.Data
                     } );
         }
 
-        // Drops and creates the database shema
-        // private static void BuildSchema( Configuration cfg )
-        // {
-        //     new SchemaExport( cfg )
-        //         .Create( false, true );
-        // }
-
-        // Updates the database schema if there are any changes to the model
+        // Updates the database schema if there are any changes to the model,
+        // or drops and creates it if it doesn't exist
         private static void BuildSchema( Configuration cfg )
         {
-            new SchemaUpdate( cfg );
+            new SchemaUpdate( cfg ).Execute( false, true );
         }
     }
 }

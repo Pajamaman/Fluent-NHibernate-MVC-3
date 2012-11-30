@@ -10,9 +10,11 @@ namespace FluentNHibernateMvc3.Models.Data
 {
     public class Repository<T> : IRepository<T>
     {
-        public ISession Session
+        private readonly ISession Session;
+
+        public Repository()
         {
-            get { return NHibernateSessionPerRequest.GetCurrentSession(); }
+            Session = NHibernateSessionPerRequest.GetCurrentSession();
         }
 
         public IQueryable<T> GetAll()
