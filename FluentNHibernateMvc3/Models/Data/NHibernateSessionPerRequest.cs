@@ -12,9 +12,6 @@ using NHibernate.Tool.hbm2ddl;
 
 namespace FluentNHibernateMvc3.Models.Data
 {
-    /// <summary>
-    /// http://www.bengtbe.com/blog/2009/10/08/nerddinner-with-fluent-nhibernate-part-3-the-infrastructure
-    /// </summary>
     public class NHibernateSessionPerRequest : IHttpModule
     {
         private static readonly ISessionFactory _sessionFactory;
