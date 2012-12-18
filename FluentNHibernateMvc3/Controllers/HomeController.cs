@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 
 using FluentNHibernateMvc3.Models;
-using FluentNHibernateMvc3.Models.Data;
+using FluentNHibernateMvc3.Repositories;
 
 namespace FluentNHibernateMvc3.Controllers
 {

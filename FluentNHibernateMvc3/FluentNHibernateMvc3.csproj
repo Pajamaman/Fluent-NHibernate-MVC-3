@@ -72,9 +72,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\IRepository.cs" />
-    <Compile Include="Models\Data\NHibernateSessionPerRequest.cs" />
-    <Compile Include="Models\Data\Repository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="App_Code\NHibernateSessionPerRequest.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Store.cs" />
