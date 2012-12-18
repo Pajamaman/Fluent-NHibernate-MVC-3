@@ -10,16 +10,16 @@ namespace FluentNHibernateMvc3.Models.Data
 {
     public class Repository<T> : IRepository<T>
     {
-        private readonly ISession Session;
+        private readonly ISession session;
 
         public Repository()
         {
-            Session = NHibernateSessionPerRequest.GetCurrentSession();
+            session = NHibernateSessionPerRequest.GetCurrentSession();
         }
 
         public IQueryable<T> GetAll()
         {
-            return Session.Query<T>();
+            return session.Query<T>();
         }
 
         public IQueryable<T> Get( Expression<Func<T, bool>> predicate )
@@ -31,7 +31,7 @@ namespace FluentNHibernateMvc3.Models.Data
         {
             foreach ( var entity in entities )
             {
-                Session.SaveOrUpdate( entity );
+                session.SaveOrUpdate( entity );
             }
 
             return entities;
@@ -39,7 +39,7 @@ namespace FluentNHibernateMvc3.Models.Data
 
         public T SaveOrUpdate( T entity )
         {
-            Session.SaveOrUpdate( entity );
+            session.SaveOrUpdate( entity );
 
             return entity;
         }

@@ -8,18 +8,18 @@ namespace FluentNHibernateMvc3.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository<Store> StoreRepository;
+        private readonly IRepository<Store> storeRepository;
 
         // Constructs our home controller
         public HomeController()
         {
-            StoreRepository = new Repository<Store>();
+            storeRepository = new Repository<Store>();
         }
 
         // Gets all the stores from our database and returns a view that displays them
         public ActionResult Index()
         {
-            var stores = StoreRepository.GetAll().ToList();
+            var stores = storeRepository.GetAll().ToList();
 
             return View( stores );
         }
@@ -27,7 +27,7 @@ namespace FluentNHibernateMvc3.Controllers
         // Gets and modifies a single store from our database
         public ActionResult Test()
         {
-            var barginBasin = StoreRepository.Get( s => s.Name == "Bargin Basin" ).SingleOrDefault();
+            var barginBasin = storeRepository.Get( s => s.Name == "Bargin Basin" ).SingleOrDefault();
 
             if ( barginBasin == null )
             {
@@ -69,7 +69,7 @@ namespace FluentNHibernateMvc3.Controllers
             AddEmployeesToStore( barginBasin, daisy, jack, sue );
             AddEmployeesToStore( superMart, bill, joan );
 
-            StoreRepository.SaveOrUpdateAll( barginBasin, superMart );
+            storeRepository.SaveOrUpdateAll( barginBasin, superMart );
 
             return RedirectToAction( "Index" );
         }

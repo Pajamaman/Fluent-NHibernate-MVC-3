@@ -14,12 +14,12 @@ namespace FluentNHibernateMvc3.Models.Data
 {
     public class NHibernateSessionPerRequest : IHttpModule
     {
-        private static readonly ISessionFactory _sessionFactory;
+        private static readonly ISessionFactory sessionFactory;
 
         // Constructs our HTTP module
         static NHibernateSessionPerRequest()
         {
-            _sessionFactory = CreateSessionFactory();
+            sessionFactory = CreateSessionFactory();
         }
 
         // Initializes the HTTP module
@@ -35,13 +35,13 @@ namespace FluentNHibernateMvc3.Models.Data
         // Returns the current session
         public static ISession GetCurrentSession()
         {
-            return _sessionFactory.GetCurrentSession();
+            return sessionFactory.GetCurrentSession();
         }
 
         // Opens the session, begins the transaction, and binds the session
         private static void BeginRequest( object sender, EventArgs e )
         {
-            ISession session = _sessionFactory.OpenSession();
+            ISession session = sessionFactory.OpenSession();
 
             session.BeginTransaction();
 
@@ -51,7 +51,7 @@ namespace FluentNHibernateMvc3.Models.Data
         // Unbinds the session, commits the transaction, and closes the session
         private static void EndRequest( object sender, EventArgs e )
         {
-            ISession session = CurrentSessionContext.Unbind( _sessionFactory );
+            ISession session = CurrentSessionContext.Unbind( sessionFactory );
 
             if ( session == null ) return;
 
