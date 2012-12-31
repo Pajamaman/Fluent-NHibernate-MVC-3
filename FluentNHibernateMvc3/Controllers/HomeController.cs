@@ -19,9 +19,9 @@ namespace FluentNHibernateMvc3.Controllers
         // Gets all the stores from our database and returns a view that displays them
         public ActionResult Index()
         {
-            var stores = storeRepository.GetAll().ToList();
+            var stores = storeRepository.GetAll();
 
-            return View( stores );
+            return View( stores.ToList() );
         }
 
         // Gets and modifies a single store from our database
